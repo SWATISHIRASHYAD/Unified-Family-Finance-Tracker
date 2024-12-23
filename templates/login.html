@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h2 {
+            color: #3F5B8D;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #92A1C2;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #6B597F;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #3F5B8D;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2E365A;
+        }
+    </style>
+</head>
+<body>
+    <h2>Login</h2>
+    <form method="POST" action="{{ url_for('login') }}">
+        <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            id="username"
+            required
+        />
+        <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            id="password"
+            required
+        />
+        <button type="submit">Login</button>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert" style="color:red;">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>

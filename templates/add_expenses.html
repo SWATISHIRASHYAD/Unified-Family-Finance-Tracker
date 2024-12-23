@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Expense</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Form Container */
+        .form-container {
+            width: 100%;
+            max-width: 600px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        /* Heading Styles */
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #6B597F;
+            text-align: center;
+        }
+
+        /* Label Styles */
+        label {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            display: block;
+            color: #555;
+        }
+
+        /* Input and Textarea Styles */
+        input[type="number"], input[type="text"], input[type="date"], input[type="time"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        /* Submit Button Styles */
+        button[type="submit"] {
+            background-color: #3f5b8d;
+            color: white;
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #A2869C;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 20px;
+                margin-top: 20px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            label {
+                font-size: 1rem;
+            }
+
+            input[type="number"], input[type="text"], input[type="date"], input[type="time"] {
+                font-size: 0.9rem;
+                padding: 8px;
+            }
+
+            button[type="submit"] {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Add Expense</h1>
+        <form action="{{ url_for('add_expense') }}" method="POST">
+            <label for="UserID">User ID:</label>
+            <input type="number" id="UserID" name="UserID" required>
+
+            <label for="categoryid">Category:</label>
+            <input type="text" id="categoryid" name="categoryid" required>
+
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" required>
+
+            <label for="expensedate">Expense Date:</label>
+            <input type="date" id="expensedate" name="expensedate" required>
+
+            <label for="expensedesc">Expense Description:</label>
+            <input type="text" id="expensedesc" name="expensedesc">
+
+            <label for="receiptpath">Receipt Path:</label>
+            <input type="text" id="receiptpath" name="receiptpath">
+
+            <label for="expensetime">Expense Time:</label>
+            <input type="time" id="expensetime" name="expensetime" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unified Family Expense Tracker</title>
+  <link rel="stylesheet" href="./static/alerts.css">
+</head>
+<body>
+  <div class="alert-container">
+    <h2>Recent Alerts</h2>
+    
+    <!-- Alerts Table -->
+    <div class="alert-table">
+      <h3>Table View</h3>
+      <table id="alertTable">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Message</th>
+            <th>Timestamp</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Alerts will be dynamically added here -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Send Mail Button -->
+    <div class="send-mail-container">
+      <button class="send-mail-button" onclick="sendEmail()">Send Email</button>
+    </div>
+  </div>
+
+  <!-- Modal for Viewing Alert Details -->
+  <div id="alertModal" class="modal-overlay">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">×</span>
+      <h3>Alert Details</h3>
+      <p id="alertDetails"></p>
+    </div>
+  </div>
+  <script src="../static/alerts.js"></script>
+</body>
+</html>

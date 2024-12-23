@@ -1,0 +1,10 @@
+Flask
+flask_SqlAlchemy
+PyMysql 
+Pandas
+NumPy
+secrets
+Enum
+datetime
+matplotlib
+os

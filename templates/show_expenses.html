@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Expenses</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Container Styles */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        /* Heading Styles */
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #6B597F;
+            text-align: center;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #BD6C73;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        /* Responsive Table */
+        @media (max-width: 768px) {
+            th, td {
+                font-size: 0.9rem;
+                padding: 8px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Expenses</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Expense ID</th>
+                    <th>User ID</th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>Expense Date</th>
+                    <th>Description</th>
+                    <th>Receipt Path</th>
+                    <th>Expense Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for expense in expenses %}
+                <tr>
+                    <td>{{ expense.ExpenseID }}</td>
+                    <td>{{ expense.UserID }}</td>
+                    <td>{{ expense.categoryid }}</td>
+                    <td>{{ expense.amount }}</td>
+                    <td>{{ expense.expensedate }}</td>
+                    <td>{{ expense.expensedesc }}</td>
+                    <td>{{ expense.receiptpath }}</td>
+                    <td>{{ expense.expensetime }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
