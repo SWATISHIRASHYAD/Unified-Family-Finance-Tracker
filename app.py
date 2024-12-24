@@ -1,6 +1,5 @@
 from flask import Flask, request, render_template, session, url_for, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
-
 from sqlalchemy import text
 import secrets
 import enum
@@ -14,7 +13,9 @@ import pandas as pd
 app = Flask(__name__)
 
 # SQLAlchemy Setup
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost:3306/unified_family'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost:3306/module3'
+#change the password and databasename as per your system
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = secrets.token_hex(16)
 
