@@ -296,15 +296,16 @@ def bud():
 
 @app.route('/viewAlerts')
 def ale():
-    return render_template('Alerts.html')
+    with db.engine.connect() as conn:
+        alerts=conn.execute(text("select * from alert"))
+        alerts=[[a.alert_id,a.budget_id,a.alert_type,a.alert_message,a.alert_date,a.is_resolved] for a in alerts]
+        return render_template('Alerts.html',alerts=alerts)
 
 @app.route('/Budget',methods=['GET'])
 def getall_budget():
     budgets=db.session.query(Budget).all()
-    result=[]
-    for budget in budgets:
-        result.append([budget.category_id,budget.limit,budget.start_date,budget.end_date,budget.user_id])
-    return jsonify({"message":result}),200
+    budgets=[[budget.budget_id,budget.category_id,budget.limit,budget.start_date,budget.end_date,budget.user_id] for budget in budgets]
+    return render_template('viewBudget.html',budgets=budgets)
 
 @app.route('/Budget',methods=['POST'])
 def add_budget():
