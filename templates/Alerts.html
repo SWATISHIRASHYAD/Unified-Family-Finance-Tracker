@@ -9,13 +9,13 @@
 <body>
   <div class="alert-container">
     <h2>Recent Alerts</h2>
-    
     <!-- Alerts Table -->
     <div class="alert-table">
       <h3>Table View</h3>
       <table id="alertTable">
         <thead>
           <tr>
+            <th>Id</th>
             <th>Type</th>
             <th>Message</th>
             <th>Timestamp</th>
@@ -23,16 +23,19 @@
           </tr>
         </thead>
         <tbody>
-          <!-- Alerts will be dynamically added here -->
+          {% for alert in alerts %}
+              <tr>
+                <td>{{alert[0]}}</td>
+                <td>{{alert[2]}}</td>
+                <td>{{alert[3]}}</td>
+                <td>{{alert[4]}}</td>
+                <td>{{'Resolved' if alert[5] else 'Unresolved'}}</td>
+                <td></td>
+              </tr>
+          {% endfor %}
         </tbody>
       </table>
     </div>
-
-    <!-- Send Mail Button -->
-    <div class="send-mail-container">
-      <button class="send-mail-button" onclick="sendEmail()">Send Email</button>
-    </div>
-  </div>
 
   <!-- Modal for Viewing Alert Details -->
   <div id="alertModal" class="modal-overlay">
@@ -42,6 +45,5 @@
       <p id="alertDetails"></p>
     </div>
   </div>
-  <script src="../static/alerts.js"></script>
 </body>
 </html>
